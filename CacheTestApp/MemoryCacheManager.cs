@@ -28,15 +28,8 @@ namespace CacheTestApp
 
 		public void SetValue<T>(string strKey, T value)
 		{
-			if(Cache.Contains(strKey))
-			{
-				Cache[strKey] = value;
-			}
-			else
-			{
-				CacheItemPolicy policy = new CacheItemPolicy();
-				Cache.Add(strKey, value, policy);
-			}
+			CacheItemPolicy policy = new CacheItemPolicy();
+			Cache.Set(strKey, value, policy);
 		}
 		#endregion
 	}
